@@ -75,6 +75,11 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
 .transport {
   display: flex;
   gap: 8px;
@@ -82,13 +87,47 @@ button {
 
 .controls {
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) 120px 130px minmax(260px, 1fr);
+  grid-template-columns: minmax(180px, 1.2fr) 100px 90px 100px 120px minmax(200px, 1.2fr);
   gap: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
   padding: 12px;
+}
+
+.status {
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--muted);
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.status.ok {
+  border-color: #9cc3a2;
+  background: #eef7ee;
+  color: #2e6b34;
+}
+
+.status.warn {
+  border-color: #e3c26b;
+  background: #fdf6e0;
+  color: #8a6d1a;
+}
+
+.status.bad {
+  border-color: #e0a1a5;
+  background: #fbecec;
+  color: var(--accent);
+}
+
+.status.running {
+  border-color: #9cc3c0;
+  background: #e9f4f2;
+  color: var(--active);
 }
 
 label {
@@ -132,6 +171,33 @@ select {
 .score {
   overflow: auto;
   padding: 12px;
+}
+
+.badge {
+  min-height: 34px;
+  margin-bottom: 10px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.badge:empty {
+  display: none;
+}
+
+.badge.count {
+  background: #fdf3d7;
+  color: var(--gold);
+  border: 1px solid #e8d3a0;
+}
+
+.badge.play {
+  background: #d9efea;
+  color: var(--active);
+  border: 1px solid #a9d3cc;
 }
 
 .grid {
@@ -215,6 +281,49 @@ select {
   padding: 8px 0;
   color: var(--muted);
   font-size: 14px;
+}
+
+.record-row {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.record-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.record-main strong {
+  font-size: 15px;
+}
+
+.record-main em {
+  font-style: normal;
+  font-weight: 800;
+}
+
+.record-row.ok .record-main em {
+  color: #2e6b34;
+}
+
+.record-row.warn .record-main em {
+  color: #8a6d1a;
+}
+
+.record-row.muted .record-main em {
+  color: var(--muted);
+}
+
+.record-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  margin-top: 4px;
 }
 
 @media (max-width: 1160px) {
