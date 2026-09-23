@@ -32,13 +32,25 @@
           <option value="3">第4小节</option>
         </select>
       </label>
+      <label>预备拍
+        <select id="countInSelect">
+          <option value="1">1拍</option>
+          <option value="2">2拍</option>
+          <option value="3">3拍</option>
+          <option value="4">4拍</option>
+        </select>
+      </label>
+      <label>循环次数<input id="loopCountInput" type="number" min="1" max="99" value="4"></label>
       <label>难点批注<input id="noteInput" placeholder="如：第2小节小锣晚半拍"></label>
+      <p id="message" class="message" role="status" hidden></p>
     </section>
 
     <section class="stage">
       <aside class="segments">
         <h2>已存方案</h2>
         <div id="savedList"></div>
+        <h2>排练记录</h2>
+        <div id="recordList"></div>
       </aside>
       <section class="score">
         <div id="grid" class="grid"></div>
@@ -51,6 +63,8 @@
       </aside>
     </section>
   </main>
+  <script src="./rules.js"></script>
+  <script src="./records.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
